@@ -47,6 +47,23 @@ class ZomatoController {
       console.log(err)
     })
   }
+
+  static searchRestaurantAround(req, res, next) {
+    const { lat, lon, q } = req.query
+    axios({
+      url: `https://developers.zomato.com/api/v2.1/search?q=${q}&lat=${lat}&lon=${lon}&radius=10000`,
+      method: 'GET',
+      headers: {
+        user_key: process.env.ZOMATO_ID
+      }
+    })
+      .then(({ data }) => {
+        res.status(201).json(data.restaurants);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 }
 
 module.exports = ZomatoController
