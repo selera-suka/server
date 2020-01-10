@@ -9,7 +9,7 @@ class WeatherController {
         .then(({ data })=>{
             let toSend = {}
             toSend.main = data.weather[0].main
-            toSend.temp = `${data.main.temp} C`
+            toSend.temp = data.main.temp
             toSend.img_url = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
             res.status(200).json(toSend)
         })
