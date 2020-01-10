@@ -1,5 +1,5 @@
 module.exports = {
-  GeolocationController: require('./geolocation'),
+  AnalyticsController: require('./analytics'),
   GoogleMapsController: require('./gmaps'),
   WeatherController: require('./weather'),
   ZomatoController: require('./zomato'),
