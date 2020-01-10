@@ -2,7 +2,7 @@ const axios = require('axios')
 
 class GoogleMapsController {
   static getMaps(req, res, next) {
-    const { origin, destination } = req.body
+    const { origin, destination } = req.query
     axios({
       method: 'get',
       url: 'https://maps.googleapis.com/maps/api/directions/json',
